@@ -3,23 +3,11 @@ import http from "node:http";
 import path from "node:path";
 import { createBareServer } from "@tomphttp/bare-server-node";
 import request from "@cypress/request";
-import basicAuth from "express-basic-auth";
 
 const __dirname = path.resolve();
 const server = http.createServer();
 const app = express(server);
 const bareServer = createBareServer("/bare/");
-
-// 添加基本身份验证中间件
-app.use(
-  basicAuth({
-    challenge: true,
-    users: {
-      // 在此处添加用户，使用示例用户名和密码
-      "admin": "iNITIA100@2019",
-    },
-  })
-);
 
 app.use(express.json());
 app.use(
