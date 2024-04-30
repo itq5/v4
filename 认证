@@ -1,0 +1,17 @@
+index.js:
+6+ 
+import basicAuth from "express-basic-auth";
+13+ 
+// 添加基本身份验证中间件
+app.use(
+  basicAuth({
+    challenge: true,
+    users: {
+      // 在此处添加用户，使用示例用户名和密码
+      "admin": "xxxxxx",
+    },
+  })
+);
+package.json:
+20+
+"express-basic-auth": ""
